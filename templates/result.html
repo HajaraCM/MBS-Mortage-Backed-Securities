@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Status and Prepayment</title>
+    <link rel="stylesheet" href="../static/style.css">
+  
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/about">About Us</a>
+        <a href="/market">Market Insights</a>
+    </div>
+    <h1>Loan Status and Prepayment Prediction</h1>
+
+    <form action="/predict" method="post">
+        <div class="container">
+            <!-- Units -->
+            <div class="form-group">
+                <label for="Units">Units:</label>
+                <input type="text" id="Units" name="Units" required>
+            </div>
+
+            <!-- Property Type -->
+            <div class="form-group">
+                <label for="PropertyType">Property Type:</label>
+                <input type="text" id="PropertyType" name="PropertyType" required>
+            </div>
+
+            <!-- Original Loan Term -->
+            <div class="form-group">
+                <label for="OrigLoanTerm">Original Loan Term:</label>
+                <input type="text" id="OrigLoanTerm" name="OrigLoanTerm" required>
+            </div>
+
+            <!-- Months Delinquent -->
+            <div class="form-group">
+                <label for="MonthsDelinquent">Months Delinquent:</label>
+                <input type="text" id="MonthsDelinquent" name="MonthsDelinquent" required>
+            </div>
+
+            <!-- Months in Repayment -->
+            <div class="form-group">
+                <label for="MonthsInRepayment">Months in Repayment:</label>
+                <input type="text" id="MonthsInRepayment" name="MonthsInRepayment" required>
+            </div>
+
+            <!-- First Payment Date -->
+            <div class="form-group">
+                <label for="FirstPaymentDate">First Payment Date:</label>
+                <input type="date" id="FirstPaymentDate" name="FirstPaymentDate" required>
+            </div>
+
+            <!-- Maturity Payment Date -->
+            <div class="form-group">
+                <label for="MaturityPaymentDate">Maturity Payment Date:</label>
+                <input type="date" id="MaturityPaymentDate" name="MaturityPaymentDate" required>
+            </div>
+
+            <!-- Credit Range -->
+            <div class="form-group">
+                <label for="CreditRange">Credit Range:</label>
+                <select id="CreditRange" name="CreditRange" required>
+                    <option value="0">Poor</option>
+                    <option value="1">Good</option>
+                    <option value="2">Fair</option>
+                    <option value="3">Excellent</option>
+                </select>
+            </div>
+
+            <!-- Repayment Range -->
+            <div class="form-group">
+                <label for="RePayRange">Repayment Range:</label>
+                <select id="RePayRange" name="RePayRange" required>
+                    <option value="0">0-4yrs</option>
+                    <option value="1">4-8yrs</option>
+                    <option value="2">8-12yrs</option>
+                    <option value="3">12-16yrs</option>
+                    <option value="4">16-20yrs</option>
+                </select>
+            </div>
+
+            <!-- Occupancy -->
+            <div class="form-group">
+                <label for="Occupancy">Occupancy:</label>
+                <select id="Occupancy" name="Occupancy" required>
+                    <option value="O">Primary Residence</option>
+                    <option value="S">Second Home</option>
+                    <option value="I">Investment Property</option>
+                </select>
+            </div>
+
+            <!-- Loan Purpose -->
+            <div class="form-group">
+                <label for="LoanPurpose">Loan Purpose:</label>
+                <select id="LoanPurpose" name="LoanPurpose" required>
+                    <option value="P">Purchase</option>
+                    <option value="N">Refinance - No Cash Out</option>
+                    <option value="C">Refinance - Cash Out</option>
+                </select>
+            </div>
+
+            <!-- Monthly Income -->
+            <div class="form-group">
+                <label for="MonthlyIncome">Monthly Income:</label>
+                <input type="text" id="MonthlyIncome" name="MonthlyIncome" required>
+            </div>
+
+            <!-- Interest Amount -->
+            <div class="form-group">
+                <label for="InterestAmount">Interest Amount:</label>
+                <input type="text" id="InterestAmount" name="InterestAmount" required>
+            </div>
+
+            <!-- Total Payment -->
+            <div class="form-group">
+                <label for="Totalpayment">Total Payment:</label>
+                <input type="text" id="Totalpayment" name="Totalpayment" required>
+            </div>
+
+            <!-- Monthly Installment -->
+            <div class="form-group">
+                <label for="MonthlyInstallment">Monthly Installment:</label>
+                <input type="text" id="MonthlyInstallment" name="MonthlyInstallment" required>
+            </div>
+
+            <!-- Original UPB -->
+            <div class="form-group">
+                <label for="OrigUPB">Original UPB:</label>
+                <input type="text" id="OrigUPB" name="OrigUPB" required>
+            </div>
+
+            <!-- Current UPB -->
+            <div class="form-group">
+                <label for="CurrentUPB">Current UPB:</label>
+                <input type="text" id="CurrentUPB" name="CurrentUPB" required>
+            </div>
+
+            <!-- DTI -->
+            <div class="form-group">
+                <label for="DTI">DTI:</label>
+                <input type="text" id="DTI" name="DTI" required>
+            </div>
+
+            <!-- Number of Borrowers -->
+            <div class="form-group">
+                <label for="NumBorrowers">Number of Borrowers:</label>
+                <input type="text" id="NumBorrowers" name="NumBorrowers" required>
+            </div>
+
+            <!-- OCLTV -->
+            <div class="form-group">
+                <label for="OCLTV">OCLTV:</label>
+                <input type="text" id="OCLTV" name="OCLTV" required>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="submit-button">
+                <input type="submit" value="Predict">
+            </div>
+        </div>
+    </form>
+
+    <!-- Display results if available -->
+   
+    
+    <p class="result">
+        {% if prediction_made %}
+            {% if y_class_pred == 1 and y_reg_pred != 'NaN' %}
+                <strong>The loan Status is Delinquent</strong> <strong>and the estimated Prepayment is</strong> ${{ y_reg_pred }}
+            {% elif y_class_pred == 0 and y_reg_pred == 'NaN' %}
+                <strong>The loan Status is Non-delinquent</strong> <strong>therefore prepayment estimation is not applicable.</strong>
+            
+            {% endif %}
+        
+        {% endif %}
+    </p>
+    
+
+
+    
+</body>
+</html>

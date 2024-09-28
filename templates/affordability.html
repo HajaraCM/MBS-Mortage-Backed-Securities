@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prepay Risk</title>
+    <style>
+         *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'poppins','sans-serif';
+        }
+        /* General styling for the body */
+        body {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url('/static/mbsimage.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+        
+
+        .navbar {
+            position: fixed;
+            top: 10px;
+            left: 50px;
+            display: flex;
+            gap: 10px; /* Space between navbar items */
+        }
+
+        .navbar a {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.4); /* Light on hover */
+        }
+
+             
+        h1 {
+            margin-top: 2px;
+            text-align: center;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+                h1:hover{
+            -webkit-text-stroke: 2px #fff;
+            color: transparent;
+        }
+
+        .container {
+            display: grid;
+            background: transparent;
+            grid-template-columns: repeat(2, 1fr); /* 3 columns */
+            gap: 20px; /* Space between grid items */
+            grid-row-gap: 5px;
+            max-width: 800px; /* Set a max width for the form */
+            width: 100%;
+            padding: 25px 30px 30px; /* Padding inside the container */
+            border: 1px solid rgba(255,255,255,0.3); /* Border around the container */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow:2px 2px 15px rgba(0,0,0,0.3) ; /* Subtle shadow for depth */
+        }
+
+        .form-item {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+            outline: 0;
+        }
+
+        label {
+            margin-bottom: 5px; /* Space between label and input */
+            font-weight: bold;
+            color: #fff;
+        }
+
+        input, select {
+            padding: 8px; /* Add padding for better appearance */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 5px; /* Space below inputs/selects */
+            width: 100%; /* Full width of the grid item */
+            box-sizing: border-box; /* Ensure padding does not affect width */
+        }
+
+        /* Center the submit button in its own row */
+        .submit-button {
+            grid-column: span 2;
+            text-align: center;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            border: none;
+            padding: 5px 20px;
+            border: none;
+            background-color: rgba(0, 0, 0, 0.966);
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: inset 1px 1px 5px rgba(0,0,0,0.3);
+            outline: 0;
+            font-size: 18px;
+            border:1px solid #ddd;
+            width: 100%;
+            margin-top: 5px;
+            font-size: 20px;
+        }
+
+        .prediction {
+            margin-top: 20px; /* Space below the prediction div */
+            text-align: center; /* Center text */
+            font-size: 30px;
+            color: #fff;
+
+        }
+
+        .submit-button :hover {
+   
+          opacity: 0.8;
+        
+
+        }
+
+        input#submit:active{
+
+          opacity: 0.8;
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/about">About Us</a>
+        <a href="/market">Market Insights</a>
+    </div>
+    <h1>Monthly Installment Affordability Risk Prediction</h1>
+    <form action="/affordability" method="post">
+        <div class="container">
+            <div class="form-item">
+                <label for="DTI">Debt-to-Income Ratio (DTI):</label>
+                <input type="text" name="DTI" required>
+            </div>
+
+            <div class="form-item">
+                <label for="MonthlyIncome">Monthly Income:</label>
+                <input type="text" name="MonthlyIncome" required>
+            </div>
+
+            <div class="form-item">
+                <label for="OCLTV">Original Loan-to-Value Ratio (OCLTV):</label>
+                <input type="text" name="OCLTV" required>
+            </div>
+
+            <div class="form-item">
+                <label for="CreditRange">Credit Range:</label>
+                <select id="CreditRange" name="CreditRange" required>
+                    <option value="0">Poor</option>
+                    <option value="1">Fair</option>
+                    <option value="2">Good</option>
+                    <option value="3">Excellent</option>
+                </select>
+            </div>
+
+            <div class="form-item">
+                <label for="InterestAmount">Interest Amount:</label>
+                <input type="text" name="InterestAmount" required>
+            </div>
+
+            <div class="form-item">
+                <label for="CurrentUPB">Current Unpaid Principal Balance (UPB):</label>
+                <input type="text" name="CurrentUPB" required>
+            </div>
+
+            <div class="form-item">
+                <label for="Totalpayment">Total Payment:</label>
+                <input type="text" name="Totalpayment" required>
+            </div>
+
+            <div class="form-item">
+                <label for="MonthlyInstallment">Monthly Installment:</label>
+                <input type="text" name="MonthlyInstallment" required>
+            </div>
+
+            <div class="form-item">
+                <label for="OrigUPB">Original Unpaid Principal Balance (OrigUPB):</label>
+                <input type="text" name="OrigUPB" required>
+            </div>
+
+            <div class="form-item">
+                <label for="NumBorrowers">Number of Borrowers:</label>
+                <input type="text" name="NumBorrowers" required>
+            </div>
+
+
+            <div class="submit-button">
+                <input type="submit" value="Predict">
+             </div>
+          </div>
+        </div>
+
+        
+    </form>
+
+    <div class="prediction">{{ prediction }}</div>
+</body>

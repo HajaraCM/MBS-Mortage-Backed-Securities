@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Loan Home</title>
+    <style>
+                    
+                    
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url('/static/mbsimage.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            justify-content: flex-start; /* Changed to flex-start */
+        }
+        
+        .navbar {
+            position: fixed;
+            top: 10px;
+            left: 50px;
+            display: flex;
+            
+            gap: 10px; /* Space between navbar items */
+        }
+
+        .navbar a {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.4); /* Light on hover */
+        }
+        
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 36px; /* Increased font size */
+            margin-top: 120px; /* Space for fixed navbar */
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+            margin-top: 50px; /* Reduced space for fixed navbar */
+            
+        }
+
+        .description {
+            text-align: center; /* Center the text */
+            font-family: 'Georgia', serif; /* Example of a curved font */
+            font-size: 18px; /* Adjust the size as needed */
+            margin: 10px; /* Add margin for spacing */
+            line-height: 1.5; /* Improve readability */
+            color: #fff;
+        }
+        .box {
+            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .box:hover {
+            background-color:rgba(255,255,255,0.3); 
+        }
+        .box h3 {
+            margin: 0;
+            color: #fff;
+        }
+
+       .box p {
+            margin: 5px 0; /* Reduce margin for tighter spacing */
+            line-height: 1.2; /* Adjust line height for compactness */
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/about">About Us</a>
+        <a href="/market">Market Insights</a>
+    </div>
+    
+    <h1>Mortgage-Backed Securities</h1>
+    <p class="description">Navigate the world of mortgage-backed securities through our platform,<br>
+        providing predictive insights and risk assessments for smarter investments. 
+    </p>   
+
+    <div class="container">
+        <div class="box" onclick="window.location.href='/predict'">
+            <h3>Loan Status & Prepayment Estimation</h3>
+            <p>Discover the current status of your mortgage loan and explore potential prepayment options to save on interest.</p>
+        </div>
+        <div class="box" onclick="window.location.href='/prepayrisk'">
+            <h3>Prepayment Risk Assessment</h3>
+            <p>Evaluate the risks associated with prepaying your mortgage loan and make informed decisions for your financial future.</p>
+        </div>
+        <div class="box" onclick="window.location.href='/affordability'">
+            <h3>Monthly Installment Affordability</h3>
+            <p>Analyze your ability to comfortably manage monthly mortgage payments and ensure financial stability.</p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+</body>
+</html>
+
+
