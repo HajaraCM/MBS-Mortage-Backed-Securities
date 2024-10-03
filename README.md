@@ -62,7 +62,7 @@ The Mortgage-Backed Securities (MBS) Prepayment Estimation Tool is a multi-model
 
 ## Purpose
 
-To empower stakeholders in the MBS market with reliable predictions regarding loan status, prepayment amounts, prepayment risk, and monthly installment affordability.
+To empower stakeholders in the MBS market with reliable predictions regarding loan status, prepayment amounts, prepayment risk, and monthly installment affordability, while analyzing Freddie Mac data to uncover consumer behavior trends.
 
 ## Getting Started
 
