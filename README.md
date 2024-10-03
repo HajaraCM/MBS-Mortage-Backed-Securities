@@ -19,7 +19,8 @@ The Mortgage-Backed Securities (MBS) Prepayment Estimation Tool is a multi-model
   - **Affordability Model**: Evaluates monthly installment affordability.
 - **Imbalanced Data Handling**: Utilizes oversampling techniques (e.g., SMOTE).
 - **Deployment**: Deployed on Render with a user-friendly web interface.
-- **User Interface**: Developed using Flask, HTML, and CSS.
+- **User Interface**: Developed using Flask, HTML, and CSS. Deployed on Render
+- 
 
 ## Dataset Features
 
@@ -45,7 +46,7 @@ The Mortgage-Backed Securities (MBS) Prepayment Estimation Tool is a multi-model
 20.Monthly_income: Your gross monthly income includes all sources of money that you receive over the course of a month, including but not limited to regular wages, earnings from side jobs and investments. Lenders consider your gross monthly income to determine your creditworthiness and ability to repay loans. 
 21.Prepayment: Prepayment is an accounting term for the settlement of a debt or installment loan in advance of its official due date. A prepayment may be the settlement of a bill, an operating expense, or a non-operating expense that closes an account before its due date. 
 22.	MSA: MSAs (Marketing Services Agreement) with Mortgage Companies. 
-23.	MIP: Federal Housing Administration (FHA) mortgage loans are designed to       help people who might have trouble getting other types of mortgage loans to buy a home. And if a homebuyer uses an FHA-backed loan, they're required to pay a mortgage insurance premium (MIP). 
+23.	MIP: Federal Housing Administration (FHA) mortgage loans are designed to help people who might have trouble getting other types of mortgage loans to buy a home. And if a homebuyer uses an FHA-backed loan, they're required to pay a mortgage insurance premium (MIP). 
 24.	OCLTV: Loan-to-value (LTV) is calculated simply by taking the   loan amount and dividing it by the value of the asset or collateral being borrowed against. 
 25.	debt-to-income ratio:Your debt-to-income ratio (DTI) is all your monthly debt payments  divided by your gross monthly income. This number is one way lenders measure your ability to manage the monthly payments to repay the money you plan to borrow. Different loan products and lenders will have different DTI limits. 
 26.	OrigUPB :Loan origination is the process by which a borrower applies for a new loan, and a lender processes that application. Origination generally includes all the steps from taking a loan application up to disbursal of funds (or declining the application). 
@@ -68,15 +69,15 @@ To empower stakeholders in the MBS market with reliable predictions regarding lo
 
 ### Prerequisites
 
-- Python 3.x
+- Python 3.9
 - Required libraries (listed in `requirements.txt`)
 
 ### Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/mbs-prepayment-tool.git
-cd mbs-prepayment-tool
+git clone https://github.com/HajaraCM/MBS-Mortage-Backed-Securities.git
+cd MBS-Mortage-Backed-Securities
 
 # Install dependencies
 pip install -r requirements.txt
